@@ -21,6 +21,7 @@ export const taskSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       state.value.push(action.payload);
+      alert(action.payload.text + " Task Added");
     },
     removeTask: (state, action) => {
       const id = action.payload;

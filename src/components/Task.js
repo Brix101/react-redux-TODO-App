@@ -13,7 +13,6 @@ const Task = ({ task }) => {
 
   const onDelete = () => {
     dispatch(removeTask(task.id));
-    // console.log("remove " + task.id);
   };
   return (
     <div
