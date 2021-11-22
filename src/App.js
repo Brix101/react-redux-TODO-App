@@ -1,11 +1,8 @@
 import "./App.css";
+import Task from "./Task";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
-  );
+  return <Task />;
 }
 
 export default App;
