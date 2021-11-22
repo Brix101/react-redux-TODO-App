@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const AddTask = ({ onAdd }) => {
+import { addTask } from "../features/task";
+import { setShowAddTask } from "../features/showAddtask";
+
+const AddTask = () => {
+  const dispatch = useDispatch();
+
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
@@ -13,7 +19,9 @@ const AddTask = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ text, day, reminder });
+    const id = Math.floor(Math.random() * 10000) + 1;
+    dispatch(addTask({ id: id, text: text, day: day, reminder: reminder }));
+    dispatch(setShowAddTask());
 
     setText("");
     setDay("");

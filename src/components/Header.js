@@ -2,8 +2,19 @@ import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import Button from "./Button";
 
-const Header = ({ title, onAdd, showAdd }) => {
+import { useSelector, useDispatch } from "react-redux";
+
+import { setShowAddTask } from "../features/showAddtask";
+
+const Header = ({ title }) => {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const showAdd = useSelector((state) => state.showAddtask.value);
+
+  const onAdd = () => {
+    dispatch(setShowAddTask());
+  };
 
   return (
     <header className="header">

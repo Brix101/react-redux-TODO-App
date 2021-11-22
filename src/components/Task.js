@@ -1,6 +1,20 @@
 import { FaTimes } from "react-icons/fa";
 
-const Task = ({ task, onDelete, onToggle }) => {
+import { useDispatch } from "react-redux";
+
+import { removeTask, toggleTask } from "../features/task";
+
+const Task = ({ task }) => {
+  const dispatch = useDispatch();
+
+  const onToggle = () => {
+    dispatch(toggleTask(task.id));
+  };
+
+  const onDelete = () => {
+    dispatch(removeTask(task.id));
+    // console.log("remove " + task.id);
+  };
   return (
     <div
       className={`task ${task.reminder && "reminder"}`}
